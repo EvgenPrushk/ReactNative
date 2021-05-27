@@ -5,21 +5,9 @@ import { AddTodo } from "./src/AddTodo";
 import { Todo } from "./src/Todo";
 
 export default function App() {
-  
   const [todos, setTodos] = useState([]);
 
   const addTodo = (title) => {
-    //   const newTodo = {
-    //     id: Date.now().toString(),
-    //     title: title,
-    //   };
-    // setTodos((prevTodos) => {
-    //   return [
-    //     ...prevTodos,
-    //     newTodo2
-    //   ]
-    // } );
-    // };
     setTodos((prev) => [
       ...prev,
       {
@@ -29,6 +17,12 @@ export default function App() {
       },
     ]);
   };
+
+  const removeTodo = (id) => {
+    // prev is array. array have method filter(). If  todo.id === id. I delete element
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
   return (
     <View>
       <Navbar title="Todo App!" />
@@ -38,9 +32,9 @@ export default function App() {
         <FlatList
           keyExtractor={(item) => item.id.toString()}
           data={todos}
-          renderItem={({ item }) => <Todo todo={item} />}
+          renderItem={({ item }) => <Todo todo={item} onRemove={removeTodo} />}
         />
-      </View>    
+      </View>
     </View>
   );
 }
