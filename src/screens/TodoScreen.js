@@ -6,7 +6,7 @@ import { AppCard } from "../components/ui/AppCard";
 export const TodoScreen = ({ goBack, todo }) => {
   return (
     <View>
-      <AppCard>
+      <AppCard style={styles.card}>
         <Text style={styles.title}>{todo.title}</Text>
         <Button title="Editing"></Button>
       </AppCard>
@@ -15,6 +15,7 @@ export const TodoScreen = ({ goBack, todo }) => {
         <View style={styles.button}>
           <Button title="Back" onPress={goBack} color={THEME.GRAY_COLOR} />
         </View>
+
         <View style={styles.button}>
           <Button
             title="Delete"
@@ -32,10 +33,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  card: {
+    marginBottom: 20,
+    padding: 15
+  },
   button: {
     width: "40%",
   },
   title: {
-    fontSize: 26,
+    fontSize: 20
   },
 });
