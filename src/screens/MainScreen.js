@@ -3,10 +3,10 @@ import { View, StyleSheet, FlatList } from "react-native";
 import { AddTodo } from "../components/AddTodo";
 import { Todo } from "../components/Todo";
 
-export const MainScreen = (addTodo, todos, removeTodo, openTodo) => {
+export const MainScreen = ({addTodo, todos, removeTodo, openTodo}) => {
   return (
     <View>
-      <AddTodo onSubmit={{ addTodo }} />
+      <AddTodo onSubmit={addTodo } />
 
       <FlatList
         keyExtractor={(item) => item.id.toString()}
