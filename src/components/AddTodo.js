@@ -44,5 +44,5 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderBottomWidth: 2,
     borderBottomColor: THEME.MAIN_COLOR,
-  },
+  }
 });

@@ -34,12 +34,13 @@ export default function App() {
         },
         {
           text: "Delete",
-          style: 'destructive',
+          style: "destructive",
           //change of state
           onPress: () => {
+            setTodoId(null);
             // prev is array. array have method filter(). If  todo.id === id. I delete element
             setTodos((prev) => prev.filter((todo) => todo.id !== id));
-          },         
+          },
         },
       ],
       { cancelable: false }
@@ -58,7 +59,13 @@ export default function App() {
   if (todoId) {
     // add function go to MainScreen
     const selectedTodo = todos.find((todo) => todo.id === todoId);
-    content = <TodoScreen onRemove={removeTodo} goBack={() => setTodoId(null)} todo={selectedTodo} />;
+    content = (
+      <TodoScreen
+        onRemove={removeTodo}
+        goBack={() => setTodoId(null)}
+        todo={selectedTodo}
+      />
+    );
   }
 
   return (
@@ -74,5 +81,5 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 30,
     paddingVertical: 20,
-  },
+  }
 });
