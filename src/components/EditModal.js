@@ -1,29 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Button, Modal } from "react-native";
 import { THEME } from "../theme";
 
-export const EditModal = ({ visible, onCansel }) => {
+export const EditModal = ({ visible, onCansel, value, onSave }) => {
+  const [title, setTitle] = useState(value);
+
+  const saveHandler = () => {
+    if (title.trim().length < 3) {
+      Alert.alert(
+        "Error!",
+        `Min size name 3 simbols. Now ${title.trim().length} simbols.`
+      );
+    } else {
+      onSave(title);
+    }
+  };
+
   return (
-    <Modal
+    <EditModal
       visible={visible}
       animationType="slide"
       transparent={false}
-      autoCapitalize="none"
-      autoCorrect={false}
       maxLength={64}
     >
       <View style={styles.wrap}>
-        <TextInput style={styles.input} placeholder="Enter the title " />
+        <TextInput
+          value={title}
+          onChangeText={setTitle}
+          style={styles.input}
+          placeholder="Enter the title "
+          autoCapitalize="none"
+          autoCorrect={false}
+          maxLength={64}
+        />
         <View style={styles.buttons}>
           <Button
             title="Cansel"
             onPress={onCansel}
             color={THEME.DANGER_COLOR}
           />
-          <Button title="Save" />
+          <Button title="Save" onPress={saveHandler} />
         </View>
       </View>
-    </Modal>
+    </EditModal>
   );
 };
 
