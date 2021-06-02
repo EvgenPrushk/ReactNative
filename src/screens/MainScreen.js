@@ -19,8 +19,7 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
       <View style={styles.imgWrap}>
         <Image
           style={styles.imgageNoItem}
-          source={(require = "../../assets/no-items.png.png")}
-          // source={{ulr:"https://ru.reactjs.org/logo-og.png"}}
+          source={require = "../../assets/no-items.png"}         
         />
       </View>
     );
