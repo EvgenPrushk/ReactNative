@@ -2,16 +2,13 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 export const Todo = ({ todo, onRemove, onOpen }) => {
-  // delete item
-  const longPressHandler = () => {
-    onRemove(todo.id);
-  };
-
+  
   return (
     <TouchableOpacity
       activeOpacity={0.5}
       onPress={() => onOpen(todo.id)}
-      onLongPress={longPressHandler}
+      //delete item
+      onLongPress={onRemove.bind(null, todo.id)}
       // firs param - context, second param  -todo.id
       // onLongPress={onRemove.bind(todo.id)}      
     >
