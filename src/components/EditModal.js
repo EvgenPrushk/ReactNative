@@ -17,7 +17,7 @@ export const EditModal = ({ visible, onCansel, value, onSave }) => {
   };
 
   return (
-    <EditModal
+    <Modal
       visible={visible}
       animationType="slide"
       transparent={false}
@@ -30,19 +30,18 @@ export const EditModal = ({ visible, onCansel, value, onSave }) => {
           style={styles.input}
           placeholder="Enter the title "
           autoCapitalize="none"
-          autoCorrect={false}
-          maxLength={64}
+          autoCorrect={false}          
         />
         <View style={styles.buttons}>
           <Button
             title="Cansel"
-            onPress={onCansel}
+            onPress={onCancel}
             color={THEME.DANGER_COLOR}
           />
           <Button title="Save" onPress={saveHandler} />
         </View>
       </View>
-    </EditModal>
+    </Modal>
   );
 };
 
