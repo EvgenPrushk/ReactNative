@@ -18,8 +18,8 @@ export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
     content = (
       <View style={styles.imgWrap}>
         <Image
-          style={styles.imgageNoItem}
-          source={require = ("../../assets/no-items.png")}         
+          style={styles.image}
+          source={require("../../assets/no-items.png")}
         />
       </View>
     );
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     padding: 10,
     height: 300,
   },
-  imgageNoItem: {
+  image: {
     width: "100%",
     height: "100%",
     resizeMode: "contain",
