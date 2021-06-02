@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Button, Modal } from "react-native";
 import { THEME } from "../theme";
 
-export const EditModal = ({ visible, onCansel, value, onSave }) => {
+export const EditModal = ({ visible, onCancel, value, onSave }) => {
   const [title, setTitle] = useState(value);
 
   const saveHandler = () => {
@@ -20,8 +20,7 @@ export const EditModal = ({ visible, onCansel, value, onSave }) => {
     <Modal
       visible={visible}
       animationType="slide"
-      transparent={false}
-      maxLength={64}
+      transparent={false}    
     >
       <View style={styles.wrap}>
         <TextInput
