@@ -20,7 +20,7 @@ export const AddTodo = ({ onSubmit }) => {
     <View style={styles.block}>
       <TextInput
         style={styles.input}
-        onChangeText={(text) => setValue(text)}
+        onChangeText={setValue}
         value={value}
         placeholder="Введите название дела"
         autoCorrect={false}
