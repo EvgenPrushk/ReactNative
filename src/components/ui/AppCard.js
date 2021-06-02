@@ -1,9 +1,9 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-export const AppCard = props => (
+export const AppCard = (props) => (
   // add styles in AppCard +styles in props!!!
   // <View style={{...styles.default, ...props.style}}>{props.children}</View>
-  <View style={ styles.default }>{props.children}</View>
+  <View style={{ ...styles.default, ...props.style }}>{props.children}</View>
 );
 
 const styles = StyleSheet.create({
@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
     //for use elevation = shadow
     elevation: 8,
     backgroundColor: "#fff",
-    borderRadius: 10
-  }
+    borderRadius: 10,
+  },
 });
