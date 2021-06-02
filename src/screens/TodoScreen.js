@@ -17,18 +17,18 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
       <EditModal
         value={todo.title}
         visible={modal}
-        onCansel={() => setModal(false)}
+        onCancel={() => setModal(false)}
         onSave={saveHandler}
       />
 
       <AppCard style={styles.card}>
         <Text style={styles.title}>{todo.title}</Text>
-        <Button title="Editing" onPress={() => setModal(true)}></Button>
+        <Button title="Editing" onPress={() => setModal(true)}/>
       </AppCard>
 
       <View style={styles.buttons}>
         <View style={styles.button}>
-          <Button title="Back" onPress={goBack} color={THEME.GRAY_COLOR} />
+          <Button title="Back" onPress={goBack} color={THEME.GREY_COLOR} />
         </View>
 
         <View style={styles.button}>
