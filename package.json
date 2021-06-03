@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "expo": "~41.0.1",
+    "expo-font": "^9.1.0",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -18,5 +19,18 @@
   "devDependencies": {
     "@babel/core": "^7.9.0"
   },
-  "private": false
+  "private": false,
+  "name": "bestproject",
+  "description": "",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvgenPrushk/ReactNative.git"
+  },
+  "author": "evgenprushak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvgenPrushk/ReactNative/issues"
+  },
+  "homepage": "https://github.com/EvgenPrushk/ReactNative#readme"
 }

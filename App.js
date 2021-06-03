@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Alert } from "react-native";
+import * as Font from "expo-font";
 import { Navbar } from "./src/components/Navbar";
 import { MainScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
+
+async function loadApplication() {
+ await Font.loadAsync({
+   'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf'),
+   'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
+ })
+}
 
 export default function App() {
   const [todoId, setTodoId] = useState(null);
   const [todos, setTodos] = useState([
     // { id: "1", title: " Выучить реакт native" },
-   
   ]);
 
   const addTodo = (title) => {
@@ -48,14 +55,16 @@ export default function App() {
   };
 
   const updateTodo = (id, title) => {
-    setTodos(old => old.map(todo => {
-      // we use only todo current id 
-      if (todo.id === id) {
-        todo.title = title
-      }
-      return  todo
-    }))
-  }
+    setTodos((old) =>
+      old.map((todo) => {
+        // we use only todo current id
+        if (todo.id === id) {
+          todo.title = title;
+        }
+        return todo;
+      })
+    );
+  };
 
   let content = (
     <MainScreen
@@ -82,7 +91,7 @@ export default function App() {
   return (
     <View>
       <Navbar title="Todo App!" />
-      
+
       <View style={styles.container}>{content}</View>
     </View>
   );
@@ -92,5 +101,5 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 30,
     paddingVertical: 20,
-  }
+  },
 });
