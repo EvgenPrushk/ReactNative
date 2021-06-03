@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Button, Modal } from "react-native";
 import { THEME } from "../theme";
+import { AppButton } from "./AppButton";
 
 export const EditModal = ({ visible, onCancel, value, onSave }) => {
   const [title, setTitle] = useState(value);
@@ -17,11 +18,7 @@ export const EditModal = ({ visible, onCancel, value, onSave }) => {
   };
 
   return (
-    <Modal
-      visible={visible}
-      animationType="slide"
-      transparent={false}    
-    >
+    <Modal visible={visible} animationType="slide" transparent={false}>
       <View style={styles.wrap}>
         <TextInput
           value={title}
@@ -29,15 +26,13 @@ export const EditModal = ({ visible, onCancel, value, onSave }) => {
           style={styles.input}
           placeholder="Enter the title "
           autoCapitalize="none"
-          autoCorrect={false}          
+          autoCorrect={false}
         />
         <View style={styles.buttons}>
-          <Button
-            title="Cansel"
-            onPress={onCancel}
-            color={THEME.DANGER_COLOR}
-          />
-          <Button title="Save" onPress={saveHandler} />
+          <AppButton onPress={onCancel} color={THEME.DANGER_COLOR}>
+            Cansel
+          </AppButton>
+          <AppButton onPress={saveHandler}>Save</AppButton>
         </View>
       </View>
     </Modal>
