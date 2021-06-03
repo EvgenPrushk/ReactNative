@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import { FontAwesome, AntDesign } from "@expo/vector-icons";
+import { View, StyleSheet, Dimensions } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 import { THEME } from "../theme";
 import { AppCard } from "../components/ui/AppCard";
 import { EditModal } from "../components/EditModal";
@@ -34,7 +34,7 @@ export const TodoScreen = ({ goBack, todo, onRemove, onSave }) => {
       <View style={styles.buttons}>
         <View style={styles.button}>
           <AppButton onPress={goBack} color={THEME.GREY_COLOR}>
-          <FontAwesome name="backward" size={20} color="#fff" />
+            <FontAwesome name="backward" size={20} color="#fff" />
           </AppButton>
         </View>
 
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   button: {
-    width: "40%",
+    // width: Dimensions.get("window").width / 3,
+    width: Dimensions.get("window").width > 400 ? 150 : 100,
   },
   title: {
     fontSize: 20,
