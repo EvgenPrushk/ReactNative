@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { View, TextInput, StyleSheet, Button, Alert } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import { THEME } from "../theme";
 
 export const AddTodo = ({ onSubmit }) => {
-  
   const [value, setValue] = useState("");
 
   const pressHandler = () => {
@@ -24,9 +24,10 @@ export const AddTodo = ({ onSubmit }) => {
         value={value}
         placeholder="Введите название дела"
         autoCorrect={false}
-        autoCapitalize="none"        
+        autoCapitalize="none"
       />
-      <Button title="Добавить" onPress={pressHandler} />
+      <AntDesign.Button  onPress={pressHandler} name="pluscircleo">Add</AntDesign.Button>
+     
     </View>
   );
 };
@@ -39,10 +40,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   input: {
-    width: "70%",
+    width: "60%",
     padding: 10,
     borderStyle: "solid",
     borderBottomWidth: 2,
     borderBottomColor: THEME.MAIN_COLOR,
-  }
+  },
 });
