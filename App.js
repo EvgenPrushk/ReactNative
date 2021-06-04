@@ -6,7 +6,7 @@ import AppLoading from "expo-app-loading";
 import { Navbar } from "./src/components/Navbar";
 import { MainScreen } from "./src/screens/MainScreen";
 import { TodoScreen } from "./src/screens/TodoScreen";
-import {THEME} from './src/theme';
+import { THEME } from "./src/theme";
 
 async function loadApplication() {
   await Font.loadAsync({
@@ -18,15 +18,13 @@ async function loadApplication() {
 export default function App() {
   const [isReady, setIsReady] = useState(false);
   const [todoId, setTodoId] = useState(null);
-  const [todos, setTodos] = useState([
-    { id: "1", title: " Выучить реакт native" },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   if (!isReady) {
     return (
       <AppLoading
-        startAsync={loadApplication}        
-        onFinish={()=>setIsReady(true)}
+        startAsync={loadApplication}
+        onFinish={() => setIsReady(true)}
         onError={(err) => console.log(err)}
       />
     );
