@@ -5,6 +5,7 @@ import { todoReducer } from "./todoReducer";
 import {
   ADD_TODO,
   CLEAR_ERROR,
+  FETCH_TODOS,
   HIDE_LOADER,
   REMOVE_TODO,
   SHOW_ERROR,
@@ -60,9 +61,23 @@ export const TodoState = ({ children }) => {
       ],
       { cancelable: false }
     );
-    changeScreen(null);
-    dispatch({ type: REMOVE_TODO, id });
   };
+
+  const fetchTodos = async () => {
+    const response = await fetch(
+      "https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos.json",
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    const data = await response.json();
+    console.log("Data", data);
+    // add id = key Object.keys(data).map(key => ({...data[key], id: key }))
+    const todos = Object.keys(data).map((key) => ({ ...data[key], id: key }));
+    dispatch({ type: FETCH_TODOS, todos });
+  };
+
   const updateTodo = (id, title) => dispatch({ type: UPDATE_TODO, id, title });
 
   const showLoader = () => dispatch({ type: SHOW_LOADER });
@@ -75,7 +90,15 @@ export const TodoState = ({ children }) => {
 
   return (
     <TodoContext.Provider
-      value={{ todos: state.todos, addTodo, removeTodo, updateTodo }}
+      value={{
+        todos: state.todos,
+        loading: state.loading,
+        error: state.error,
+        addTodo,
+        removeTodo,
+        updateTodo,
+        fetchTodos,
+      }}
     >
       {children}
     </TodoContext.Provider>

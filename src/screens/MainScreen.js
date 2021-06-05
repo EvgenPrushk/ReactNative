@@ -1,20 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { View, StyleSheet, FlatList, Image, Dimensions } from "react-native";
 import { AddTodo } from "../components/AddTodo";
 import { Todo } from "../components/Todo";
 import { THEME } from "../theme";
 
-export const MainScreen = ({ addTodo, todos, removeTodo, openTodo }) => {
+export const MainScreen = ({
+  addTodo,
+  todos,
+  removeTodo,
+  fetchTodos,
+  loading,
+  error,
+}) => {
   const [deviceWidth, setDeviceWidth] = useState(
     Dimensions.get("window").width - THEME.PADDING_HORIZONTAL * 2
   );
+
+  const loadTodos = useCallback(async () => await fetchTodos(), [fetchTodos]);
+  useEffect(() => {
+    loadTodos();
+  }, []);
+
   // use useEffect, besause only 1  init component
   useEffect(() => {
     // calculate width
     const update = () => {
       const width =
         Dimensions.get("window").width - THEME.PADDING_HORIZONTAL * 2;
-        // change state
+      // change state
       setDeviceWidth(width);
     };
     // addEventListener "change"
