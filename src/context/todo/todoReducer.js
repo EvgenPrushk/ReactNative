@@ -15,7 +15,7 @@ const handlers = {
     ],
   }),
 
-  [REMOVE_TODO]: (state, id) => ({
+  [REMOVE_TODO]: (state, {id}) => ({
     // ...state -deploy state
     ...state,
     // filter todo.id !== action.id
