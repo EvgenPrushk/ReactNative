@@ -19,7 +19,7 @@ const handlers = {
     // ...state -deploy state
     ...state,
     // filter todo.id !== action.id
-    todos: state.todos.filter((todo) => todo.id !== action.id),
+    todos: state.todos.filter((todo) => todo.id !== id),
   }),
 
   [UPDATE_TODO]: (state, { title, id }) => ({
