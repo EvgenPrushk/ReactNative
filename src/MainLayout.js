@@ -12,33 +12,6 @@ export const MainLayout = () => {
   const { todos, addTodo, removeTodo, updateTodo } = useContext(TodoContext);
   const {todoId, changeScreen} = useContext(ScreenContext)
 
-  //   const removeTodo = (id) => {
-  //     const todo = todos.find((t) => t.id === id);
-  //     Alert.alert(
-  //       "Deleting an item",
-  //       `Are you sure want to delete ${todo.title}`,
-  //       [
-  //         {
-  //           text: "Cancellation",
-  //           style: "cancel",
-  //         },
-  //         {
-  //           text: "Delete",
-  //           style: "destructive",
-  //           //change of state
-  //           onPress: () => {
-  //             setTodoId(null);
-  //             // prev is array. array have method filter(). If  todo.id === id. I delete element
-  //             setTodos((prev) => prev.filter((todo) => todo.id !== id));
-  //           },
-  //         },
-  //       ],
-  //       { cancelable: false }
-  //     );
-  //   };
-
-
-
   let content = (
     <MainScreen
       todos={todos}
