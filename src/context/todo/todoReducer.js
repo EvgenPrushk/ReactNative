@@ -1,7 +1,16 @@
-import { ADD_TODO, UPDATE_TODO, REMOVE_TODO } from "../types";
+import {
+  ADD_TODO,
+  UPDATE_TODO,
+  REMOVE_TODO,
+  SHOW_ERROR,
+  CLEAR_ERROR,
+  SHOW_LOADER,
+  HIDE_LOADER,
+  FETCH_TODOS,
+} from "../types";
 
 const handlers = {
-  [ADD_TODO]: (state, { title }) => ({
+  [ADD_TODO]: (state, { title, id }) => ({
     // ...state -deploy state
     ...state,
     todos: [
@@ -9,13 +18,13 @@ const handlers = {
       ...state.todos,
       {
         // key is String in React
-        id: Date.now().toString(),
+        id,
         title,
       },
     ],
   }),
 
-  [REMOVE_TODO]: (state, {id}) => ({
+  [REMOVE_TODO]: (state, { id }) => ({
     // ...state -deploy state
     ...state,
     // filter todo.id !== action.id
@@ -31,6 +40,12 @@ const handlers = {
       return todo;
     }),
   }),
+
+  [SHOW_LOADER]: (state) => ({ ...state, loading: true }),
+  [HIDE_LOADER]: (state) => ({ ...state, loading: false }),
+  [CLEAR_ERROR]: (state) => ({ ...state, error: null }),
+  [SHOW_ERROR]: (state, { error }) => ({ ...state, error }),
+  [FETCH_TODOS]: (state, { todos }) => ({ ...state, todos }),
 
   DEFAULT: (state) => state,
 };
