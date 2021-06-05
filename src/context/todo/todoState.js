@@ -27,7 +27,7 @@ export const TodoState = ({ children }) => {
 
   const addTodo = async (title) => {
     const response = await fetch(
-      "htttops://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos.json",
+      "https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos.json",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -52,8 +52,14 @@ export const TodoState = ({ children }) => {
           text: "Delete",
           style: "destructive",
           //change of state
-          onPress: () => {
+          onPress: async () => {
             changeScreen(null);
+            await fetch(
+              `https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}.json`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+              }
+            );
             // prev is array. array have method filter(). If  todo.id === id. I delete element
             dispatch({ type: REMOVE_TODO, id });
           },
