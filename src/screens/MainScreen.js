@@ -3,7 +3,10 @@ import { View, StyleSheet, FlatList, Image, Dimensions } from "react-native";
 import { AddTodo } from "../components/AddTodo";
 import { Todo } from "../components/Todo";
 import { THEME } from "../theme";
-import {AppLoader} from '../components/ui/AppLoader';
+
+import { AppLoader } from "../components/ui/AppLoader";
+import { AppText } from "../components/ui/AppText";
+import { AppButton } from "../components/AppButton";
 
 export const MainScreen = ({
   addTodo,
@@ -40,7 +43,16 @@ export const MainScreen = ({
   });
 
   if (loading) {
-    return <AppLoader/>
+    return <AppLoader />;
+  }
+
+  if (error) {
+    return (
+      <View style={(style = styles.center)}>
+        <AppText style={(style = styles.error)}>{error}</AppText>
+        <AppButton onPress={loadTodos}>Повторить</AppButton>
+      </View>
+    );
   }
 
   let content = (
@@ -84,5 +96,14 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     resizeMode: "contain",
+  },
+  center: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  error: {
+    fontSize: 20,
+    color: THEME.DANGER_COLOR,
   },
 });
