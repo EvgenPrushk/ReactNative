@@ -1,11 +1,11 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 
-import { MainLayout } from "./src/MainLayout";
+
 import { TodoState } from "./src/context/todo/todoState";
-
-
+import { ScreenState } from "./src/context/screen/ScreenState";
+import { MainLayout } from "./src/MainLayout";
 
 async function loadApplication() {
   await Font.loadAsync({
@@ -26,12 +26,12 @@ export default function App() {
       />
     );
   }
- 
+
   return (
-    <TodoState>
-      <MainLayout/>
-    </TodoState>
+    <ScreenState>
+      <TodoState>
+        <MainLayout />
+      </TodoState>
+    </ScreenState>
   );
 }
-
-
