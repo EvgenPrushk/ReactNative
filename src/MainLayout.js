@@ -1,4 +1,4 @@
-import React, {  useContext } from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import { Navbar } from "./components/Navbar";
 import { THEME } from "./theme";
@@ -10,7 +10,7 @@ import { ScreenContext } from "./context/screen/screenContext";
 
 export const MainLayout = () => {
   const { todos, addTodo, removeTodo, updateTodo } = useContext(TodoContext);
-  const {todoId, changeScreen} = useContext(ScreenContext)
+  const { todoId, changeScreen } = useContext(ScreenContext);
 
   let content = (
     <MainScreen
@@ -36,7 +36,7 @@ export const MainLayout = () => {
   }
 
   return (
-    <View>
+    <View style={styles.wrapper}>
       <Navbar title="Todo App!" />
 
       <View style={styles.container}>{content}</View>
@@ -48,5 +48,9 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: THEME.PADDING_HORIZONTAL,
     paddingVertical: THEME.PADDING_VERTICAL,
+    flex: 1,
+  },
+  wrapper: {
+    flex: 1,
   },
 });

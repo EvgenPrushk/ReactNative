@@ -3,6 +3,7 @@ import { View, StyleSheet, FlatList, Image, Dimensions } from "react-native";
 import { AddTodo } from "../components/AddTodo";
 import { Todo } from "../components/Todo";
 import { THEME } from "../theme";
+import {AppLoader} from '../components/ui/AppLoader';
 
 export const MainScreen = ({
   addTodo,
@@ -37,6 +38,10 @@ export const MainScreen = ({
       Dimensions.removeEventListener("change", update);
     };
   });
+
+  if (loading) {
+    return <AppLoader/>
+  }
 
   let content = (
     <View style={{ width: deviceWidth }}>
