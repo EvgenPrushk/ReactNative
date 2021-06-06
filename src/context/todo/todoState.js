@@ -55,7 +55,8 @@ export const TodoState = ({ children }) => {
           onPress: async () => {
             changeScreen(null);
             await fetch(
-              `https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}.json`, {
+              `https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}.json`,
+              {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
               }
