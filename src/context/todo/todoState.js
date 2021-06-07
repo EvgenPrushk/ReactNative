@@ -27,7 +27,7 @@ export const TodoState = ({ children }) => {
 
   const addTodo = async (title) => {
     const response = await fetch(
-      "https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos.json",
+      "https://rn-data-39868-default-rtdb.firebaseio.com/todos.json",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -55,7 +55,7 @@ export const TodoState = ({ children }) => {
           onPress: async () => {
             changeScreen(null);
             await fetch(
-              `https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}.json`,
+              `https://rn-data-39868-default-rtdb.firebaseio.com/todos/${id}.json`,
               {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
@@ -75,7 +75,7 @@ export const TodoState = ({ children }) => {
     clearError();
     try {
       const response = await fetch(
-        "https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos.json",
+        "https://rn-data-39868-default-rtdb.firebaseio.com/todos.json",
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -97,7 +97,7 @@ export const TodoState = ({ children }) => {
     clearError();
     try {
       await fetch(
-        `https://rn-todo-ap-37a87-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}.json`,
+        `https://rn-data-39868-default-rtdb.firebaseio.com/todos/${id}.json`,
         {
           method: "PUTCH",
           headers: { "Content-Type": "application/json" },
