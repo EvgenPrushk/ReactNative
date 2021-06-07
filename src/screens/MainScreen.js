@@ -6,7 +6,7 @@ import { THEME } from "../theme";
 
 import { AppLoader } from "../components/ui/AppLoader";
 import { AppText } from "../components/ui/AppText";
-import { AppButton } from "../components/AppButton";
+import { AppButton } from "../components/ui/AppButton";
 
 export const MainScreen = ({
   addTodo,

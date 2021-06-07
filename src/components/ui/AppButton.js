@@ -6,8 +6,8 @@ import {
   TouchableNativeFeedback,
   Platform,
 } from "react-native";
-import { THEME } from "../theme";
-import { AppTextBold } from "./ui/AppTextBold";
+import { THEME } from "../../theme";
+import { AppTextBold } from "./AppTextBold";
 
 export const AppButton = ({ children, onPress, color = THEME.MAIN_COLOR }) => {
   const Wrapper =
