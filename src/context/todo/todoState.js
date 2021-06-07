@@ -1,7 +1,7 @@
 import React, { useReducer, useContext } from "react";
 import { Alert } from "react-native";
-import { TodoContext } from "./TodoContext";
-import { todoReducer } from "./todoReducer";
+import { TodoContext } from "../todo/todoContext";
+import { todoReducer } from "../todo/todoReducer";
 import {
   ADD_TODO,
   CLEAR_ERROR,
