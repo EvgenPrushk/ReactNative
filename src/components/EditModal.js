@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TextInput, Modal } from "react-native";
 import { THEME } from "../theme";
-import { AppButton } from "./AppButton";
+import { AppButton } from "./ui/AppButton";
 
 export const EditModal = ({ visible, onCancel, value, onSave }) => {
   const [title, setTitle] = useState(value);
