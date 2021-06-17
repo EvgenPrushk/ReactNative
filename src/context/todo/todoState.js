@@ -1,6 +1,6 @@
 import React, { useReducer, useContext } from "react";
 import { Alert } from "react-native";
-import { TodoContext } from "./todoContext";
+import { TodoContext } from "./TodoContext";
 import { todoReducer } from "./todoReducer";
 import {
   ADD_TODO,
@@ -99,7 +99,7 @@ export const TodoState = ({ children }) => {
       await fetch(
         `https://rn-data-39868-default-rtdb.firebaseio.com/todos/${id}.json`,
         {
-          method: "PUTCH",
+          method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ title }),
         }
