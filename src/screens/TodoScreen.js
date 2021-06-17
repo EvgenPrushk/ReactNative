@@ -6,7 +6,7 @@ import { AppCard } from "../components/ui/AppCard";
 import { EditModal } from "../components/EditModal";
 import { AppTextBold } from "../components/ui/AppTextBold";
 import { AppButton } from "../components/ui/AppButton";
-import { TodoContext } from "../context/todo/todoContext";
+import { TodoContext } from "../context/todo/TodoContext";
 import { ScreenContext } from "../context/screen/screenContext";
 
 export const TodoScreen = () => {
