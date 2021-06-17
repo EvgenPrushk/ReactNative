@@ -4,6 +4,7 @@ import { screenReducer } from "./screenReducer";
 import { CHANGE_SCREEN } from "../types";
 
 export const ScreenState = ({ children }) => {
+  
   // null === mainScreen
   const [state, dispatch] = useReducer(screenReducer, null);
 
