@@ -21,8 +21,9 @@ export default function App() {
     return (
       <AppLoading
         startAsync={loadApplication}
-        onFinish={() => setIsReady(true)}
         onError={(err) => console.log(err)}
+        onFinish={() => setIsReady(true)}
+       
       />
     );
   }
